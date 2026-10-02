@@ -45,12 +45,28 @@ function rastrear(tipo, evento, dados) {
   var retrato = window.matchMedia('(orientation: portrait)').matches;
   var nome = retrato ? 'fundo-mobile' : 'fundo-desktop';
   v.poster = 'assets/poster-' + nome + '.jpg';
-  var semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var economia = navigator.connection && navigator.connection.saveData;
-  if (semMovimento || economia) return;
+  v.muted = true;
+  v.defaultMuted = true;
+  v.playsInline = true;
+  v.setAttribute('muted', '');
+  v.setAttribute('playsinline', '');
+  v.setAttribute('webkit-playsinline', '');
+  v.setAttribute('autoplay', '');
+  v.preload = 'auto';
   v.src = MIDIA + 'videos/' + nome + '.mp4';
+  var naTela = true;
+  function tocar() { if (naTela && !document.hidden) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+  v.addEventListener('loadeddata', tocar);
+  v.addEventListener('canplay', tocar);
+  v.load();
+  tocar();
+  ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+    window.addEventListener(ev, function () { if (v.paused) tocar(); }, { passive: true, once: true });
+  });
+  document.addEventListener('visibilitychange', function () { document.hidden ? v.pause() : tocar(); });
   new IntersectionObserver(function (e) {
-    e[0].isIntersecting ? v.play().catch(function () {}) : v.pause();
+    naTela = e[0].isIntersecting;
+    naTela ? tocar() : v.pause();
   }).observe(v);
 })();
 
