@@ -5,5 +5,6 @@ Uma pasta por serviço, publicadas pelo GitHub Pages.
 | Página | Endereço |
 |---|---|
 | Lisa o Ano Todo | https://eduardoschuman-glitch.github.io/luanafelinto/lisa-o-ano-todo/ |
+| Beauty Bank | https://eduardoschuman-glitch.github.io/luanafelinto/beauty-bank/ |
 
 Fotos, vídeos e logos ficam no repositório `luanafelinto-midia`.
