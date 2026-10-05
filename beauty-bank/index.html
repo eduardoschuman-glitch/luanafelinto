@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#3B2A22">
 <meta property="og:title" content="Beauty Bank · Luana Felinto Beauty Clinic">
 <meta property="og:description" content="Sua mensalidade vira saldo. Seu saldo vira cuidado.">
-<meta property="og:image" content="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/clinica-recepcao.jpg">
-<link rel="icon" href="https://eduardoschuman-glitch.github.io/luanafelinto-midia/assets/monograma-lf-dourado.png">
+<meta property="og:image" content="https://eduardoschuman-glitch.github.io/luanafelinto/beauty-bank/assets/clinica-recepcao.jpg">
+<link rel="icon" href="assets/monograma-lf-dourado.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:ital,wght@0,200;0,300;0,400;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -105,7 +105,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .palco{position:relative;height:600px;perspective:1400px}
 .palco-foto{position:absolute;right:0;top:0;width:78%;height:88%;border-radius:200px 200px var(--raio) var(--raio);overflow:hidden;box-shadow:var(--sombra)}
-.palco-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;transform:scale(1.06);transition:transform 1.6s var(--ease)}
+.palco-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 8%;transform:scale(1.06);transition:transform 1.6s var(--ease)}
 .palco:hover .palco-foto img{transform:scale(1.02)}
 .palco-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(59,42,34,.28))}
 
@@ -123,7 +123,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cartao-topo{display:flex;justify-content:space-between;align-items:flex-start;position:relative}
 .cartao-marca{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.32em;line-height:1.5}
 .cartao-marca small{display:block;font-family:'Montserrat',sans-serif;font-size:8.5px;letter-spacing:.34em;opacity:.75;margin-top:2px}
-.cartao-mono{width:38px;height:auto;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 55%,transparent 75%);mask-image:radial-gradient(circle at 50% 50%,#000 55%,transparent 75%)}
+.cartao-mono{width:32px;height:auto;-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 55%,transparent 75%);mask-image:radial-gradient(circle at 50% 50%,#000 55%,transparent 75%)}
 .chip{position:relative;width:42px;height:32px;border-radius:7px;margin-top:20px;background:linear-gradient(135deg,#D8C3A8,#B9A491 45%,#E9DCCB 70%,#B9A491);opacity:.92}
 .chip::before,.chip::after{content:"";position:absolute;inset:7px 0;border-top:1px solid rgba(59,42,34,.35);border-bottom:1px solid rgba(59,42,34,.35)}
 .chip::after{inset:0 13px;border:0;border-left:1px solid rgba(59,42,34,.35);border-right:1px solid rgba(59,42,34,.35)}
@@ -148,12 +148,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .palco{height:440px}
   .palco-foto{width:86%;height:86%}
   .cartao{width:86%;padding:18px 20px}
+  .cartao .chip{display:none}
   .cartao-saldo{left:20px;bottom:16px}
   .cartao-saldo strong{font-size:24px}
   .cartao-plano{right:20px;bottom:18px}
   .aviso{font-size:11px;padding:10px 14px 10px 10px}
-  .aviso.um{top:22px;left:0}
-  .aviso.dois{right:0;top:40%}
+  .aviso.um{top:auto;bottom:47%;left:0}
+  .aviso.dois{display:none}
   .hero-dados{gap:22px}
   .hero-dados strong{font-size:24px}
 }
@@ -438,7 +439,7 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
 
 <header class="nav" id="nav">
   <div class="wrap">
-    <a href="#topo" class="nav-logo" aria-label="Luana Felinto Beauty Clinic"><img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/assets/logo-apoio-fundo-claro.png" alt="Luana Felinto Beauty Clinic"></a>
+    <a href="#topo" class="nav-logo" aria-label="Luana Felinto Beauty Clinic"><img src="assets/logo-apoio-fundo-claro.png" alt="Luana Felinto Beauty Clinic"></a>
     <nav class="nav-links" aria-label="Seções">
       <a href="#como">Como funciona</a>
       <a href="#planos">Planos</a>
@@ -472,7 +473,7 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
       </div>
 
       <div class="palco rev d2" id="palco">
-        <div class="palco-foto"><img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/luana-branco.jpg" alt="Luana Felinto, fundadora da clínica" fetchpriority="high"></div>
+        <div class="palco-foto"><img src="assets/luana-branco.jpg" alt="Luana Felinto, fundadora da clínica" fetchpriority="high"></div>
         <div class="aviso um"><span class="ponto">+</span><div><b class="num" id="aviso-dep">R$ 590,00</b>depositado no seu saldo</div></div>
         <div class="aviso dois v"><span class="ponto">%</span><div><b>Preço de membro</b>aplicado no seu Botox</div></div>
         <div class="cartao" id="cartao" aria-hidden="true">
@@ -480,7 +481,7 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
           <div class="brilho"></div><div class="varredura"></div>
           <div class="cartao-topo">
             <div class="cartao-marca">BEAUTY BANK<small>LUANA FELINTO</small></div>
-            <img class="cartao-mono" src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/assets/monograma-lf-dourado.png" alt="">
+            <img class="cartao-mono" src="assets/monograma-lf-dourado.png" alt="">
           </div>
           <div class="chip"></div>
           <div class="cartao-saldo"><span>Saldo disponível</span><strong class="num" id="cartao-saldo">R$ 0,00</strong></div>
@@ -642,19 +643,19 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
       </div>
       <div class="galeria">
         <article class="tile rev" tabindex="0">
-          <img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/injetaveis.jpg" alt="Marcação facial antes de procedimento injetável" loading="lazy">
+          <img src="assets/injetaveis.jpg" alt="Marcação facial antes de procedimento injetável" loading="lazy">
           <div class="tile-txt"><h3>Injetáveis</h3><p>Botox, preenchimento labial, bioestimuladores Sculptra e Radiesse, Profhilo, skinbooster e otomodelação.</p></div>
         </article>
         <article class="tile rev d1" tabindex="0">
-          <img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/laser.jpg" alt="Luana Felinto aplicando laser" loading="lazy">
+          <img src="assets/laser.jpg" alt="Luana Felinto aplicando laser" loading="lazy">
           <div class="tile-txt"><h3>Lasers</h3><p>Lavieen para melasma, manchas, poros e textura, remoção de micropigmentação e depilação a laser.</p></div>
         </article>
         <article class="tile rev d2" tabindex="0">
-          <img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/ultraformer.jpg" alt="Aparelho Ultraformer III sendo preparado" loading="lazy">
+          <img src="assets/ultraformer.jpg" alt="Aparelho Ultraformer III sendo preparado" loading="lazy">
           <div class="tile-txt"><h3>Tecnologias</h3><p>Ultraformer III, PISOM, radiofrequência e Ultrafocus para firmeza e contorno.</p></div>
         </article>
         <article class="tile rev d3" tabindex="0">
-          <img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/pele.jpg" alt="Procedimento facial na clínica" loading="lazy">
+          <img src="assets/pele.jpg" alt="Procedimento facial na clínica" loading="lazy">
           <div class="tile-txt"><h3>Pele e rituais</h3><p>Limpeza de pele, peelings, Hidragloss, microagulhamento com PDRN e drenagem.</p></div>
         </article>
       </div>
@@ -684,7 +685,7 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
   <section class="secao secao-cafe">
     <div class="wrap cur">
       <div class="cur-foto rev">
-        <img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/luana-retrato.jpg" alt="Retrato de Luana Felinto" loading="lazy">
+        <img src="assets/luana-retrato.jpg" alt="Retrato de Luana Felinto" loading="lazy">
         <span class="cur-foto-moldura"></span>
       </div>
       <div>
@@ -693,8 +694,8 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
         <p class="rev d2">Cada tecnologia e cada especialista que toca o seu rosto passou pelo olhar da Luana. O Beauty Bank é a forma mais inteligente de manter esse cuidado em dia, sem pensar no valor de cada sessão.</p>
         <blockquote class="citacao rev d2">O melhor resultado é aquele que ninguém percebe que foi feito, porque parece que sempre foi seu.</blockquote>
         <div class="cur-mini rev d3">
-          <figure><img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/clinica-recepcao.jpg" alt="Recepção da Luana Felinto Beauty Clinic" loading="lazy"></figure>
-          <figure><img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/fotos/beauty-bank/clinica-espelhos.jpg" alt="Ambiente da clínica com espelhos" loading="lazy"></figure>
+          <figure><img src="assets/clinica-recepcao.jpg" alt="Recepção da Luana Felinto Beauty Clinic" loading="lazy"></figure>
+          <figure><img src="assets/clinica-espelhos.jpg" alt="Ambiente da clínica com espelhos" loading="lazy"></figure>
         </div>
       </div>
     </div>
@@ -752,7 +753,7 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
           <div class="varredura"></div>
           <div class="cartao-topo">
             <div class="cartao-marca">BEAUTY BANK<small>LUANA FELINTO</small></div>
-            <img class="cartao-mono" src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/assets/monograma-lf-dourado.png" alt="">
+            <img class="cartao-mono" src="assets/monograma-lf-dourado.png" alt="">
           </div>
           <div class="chip"></div>
           <div class="cartao-saldo"><span>Membro desde</span><strong class="num" id="membro-desde">2026</strong></div>
@@ -765,7 +766,7 @@ footer a{border-bottom:1px solid rgba(185,164,145,.5);padding-bottom:2px}
 
 <footer>
   <div class="wrap">
-    <img src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/assets/logo-principal-dourado.png" alt="Luana Felinto Beauty Clinic">
+    <img src="assets/logo-principal-dourado.png" alt="Luana Felinto Beauty Clinic">
     <p class="leg">Beauty Bank é o programa de membros da Luana Felinto Beauty Clinic, Porto Alegre. Valores de referência da tabela da clínica, sujeitos a avaliação. Indicação de procedimento somente após avaliação com a equipe.</p>
     <a href="https://www.instagram.com/luanafelintobeauty/" target="_blank" rel="noopener">@luanafelintobeauty</a>
   </div>

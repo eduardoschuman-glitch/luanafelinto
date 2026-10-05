@@ -35,4 +35,4 @@ Os preços dos procedimentos vêm da `Tabela de Procedimentos e Valores.md`. **T
 
 ## Fotos
 
-Ficam em `luanafelinto-midia/fotos/beauty-bank/`. Ensaio da Luana, ambiente da clínica e procedimentos sem rosto identificável de paciente (Ultraformer e marcação vindos da pasta Procedimentos do Drive da clínica). As fotos e vídeos de avaliação de Botox do Drive mostram o rosto de pacientes e ficaram de fora até existir termo de imagem.
+Ficam em `beauty-bank/assets/` (também copiadas em `luanafelinto-midia/fotos/beauty-bank/`; o deploy daquele repositório travou na fila do GitHub em 05/10/2026, então a página usa a cópia local). Ensaio da Luana, ambiente da clínica e procedimentos sem rosto identificável de paciente (Ultraformer e marcação vindos da pasta Procedimentos do Drive da clínica). As fotos e vídeos de avaliação de Botox do Drive mostram o rosto de pacientes e ficaram de fora até existir termo de imagem.
