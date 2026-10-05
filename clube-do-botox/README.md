@@ -6,7 +6,7 @@ Feita a partir de `Clube do Botox/Clube do Botox - Plano de Lancamento.pdf`: 3 a
 
 ## Como a página vende
 
-1. **Topo:** gancho ("O Botox dura em média quatro meses. O problema é quando você só lembra de voltar no sexto."), headline "Botox em dia, sempre", preço com âncora (R$ 796 por sessão contra R$ 1.400 avulsa) e contador.
+1. **Topo:** gancho ("O Botox dura em média quatro meses. O problema é quando você só lembra de voltar no sexto."), headline "Botox em dia, sempre", preço com âncora (12x R$ 199 contra R$ 1.400 da sessão avulsa) e contador. O valor por sessão do Clube foi retirado da página a pedido do Eduardo (05/10/2026).
 2. **Segunda dobra:** espaço do vídeo em formato story (9:16), já com cara de vídeo pronto.
 3. Gráfico do intervalo (avulso deixa a ruga voltar, Clube reaplica a cada 4 meses), o que inclui, as três áreas, as contas, o ano em três sessões, resultado natural, segurança do pagamento, os 5 passos, curadoria, condição de lançamento com contador e dúvidas.
 
@@ -29,5 +29,6 @@ Enquanto `VIDEO` estiver vazio, o clique mostra o aviso "O vídeo da Luana chega
 
 ## Imagens
 
-- `retrato.jpg`, `tercosup.jpg`, `aplicacao.jpg` e `still.jpg` foram geradas no Kairogen (Seedream 5 Pro, 2k) em 05/10/2026. São ilustrativas, não são pacientes, e o rodapé avisa "Imagens ilustrativas". Nenhuma delas é antes e depois.
+- `luana-hero.jpg` (topo) é foto real da Luana, DSC06122 da pasta Fotos Luana Felinto do Drive da clínica.
+- `tercosup.jpg`, `aplicacao.jpg` e `still.jpg` foram geradas no Kairogen (Seedream 5 Pro, 2k) em 05/10/2026. São ilustrativas, não são pacientes, e o rodapé avisa "Imagens ilustrativas". Nenhuma delas é antes e depois.
 - `video-capa.jpg` é foto real da Luana (Branding/Luana Felinto). `clinica-recepcao.jpg` é foto real da clínica.

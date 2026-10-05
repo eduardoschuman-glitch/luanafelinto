@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#3B2A22">
 <meta property="og:title" content="Clube do Botox · Luana Felinto">
 <meta property="og:description" content="Botox em dia o ano inteiro: 3 aplicações no terço superior por 12x de R$ 199.">
-<meta property="og:image" content="https://eduardoschuman-glitch.github.io/luanafelinto/clube-do-botox/assets/retrato.jpg">
+<meta property="og:image" content="https://eduardoschuman-glitch.github.io/luanafelinto/clube-do-botox/assets/luana-hero.jpg">
 <link rel="icon" href="assets/monograma-lf-dourado.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,7 +95,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .contador .t b{font-weight:300;font-size:20px;line-height:1.1}
 .contador .t i{font-style:normal;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--cafe-70)}
 .hero-foto{position:relative;aspect-ratio:3/4;border-radius:240px 240px var(--raio) var(--raio);overflow:hidden;box-shadow:var(--sombra)}
-.hero-foto img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.4s var(--ease)}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transform:scale(1.08);transition:transform 2.4s var(--ease)}
 .hero-foto.ok img{transform:scale(1)}
 .hero-foto::after{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.55);border-radius:228px 228px 12px 12px;pointer-events:none}
 .selo-flut{position:absolute;left:-28px;bottom:48px;background:rgba(250,247,242,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:18px;padding:16px 20px;box-shadow:var(--sombra);font-size:12px;line-height:1.45;animation:boia 7s ease-in-out infinite}
@@ -211,7 +211,7 @@ svg.graf{width:100%;height:auto;overflow:visible}
 .barra-c.avulso .trilho i{background:var(--taupe)}
 .barra-c.clube .trilho i{background:linear-gradient(90deg,var(--cafe),var(--vinho))}
 .barra-c small{display:block;font-size:12px;color:var(--cafe-70);margin-top:8px}
-.economia{margin-top:36px;padding:26px 28px;border-radius:20px;background:var(--cafe);color:var(--creme);display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.economia{margin-top:36px;padding:26px 28px;border-radius:20px;background:var(--cafe);color:var(--creme);display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .economia small{display:block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.75}
 .economia b{font-weight:200;font-size:28px;color:var(--branco);line-height:1.2}
 @media (max-width:900px){.contas{grid-template-columns:1fr;gap:40px}.contas-foto{max-width:480px;aspect-ratio:4/3}}
@@ -350,7 +350,7 @@ footer img{height:56px;width:auto}
         <p class="sub rev d2">Três aplicações no terço superior ao longo de 12 meses, cada uma no tempo certo. Testa, entre as sobrancelhas e ao redor dos olhos leves o ano inteiro, sem você precisar lembrar de marcar.</p>
         <div class="preco-hero rev d2">
           <div class="p"><small>12x</small><small>R$</small><strong class="num">199</strong><em>/mês</em></div>
-          <p class="ancora">Sai <b class="num">R$ 796 por sessão.</b><br>Avulsa, a mesma sessão custa <s class="num">R$ 1.400</s>.</p>
+          <p class="ancora">Avulsa, cada sessão<br>custa <s class="num">R$ 1.400</s>.</p>
         </div>
         <div class="hero-acoes rev d3">
           <a class="btn btn-cafe js-clube" href="#" target="_blank" rel="noopener">Quero entrar no Clube <span class="seta"></span></a>
@@ -363,7 +363,7 @@ footer img{height:56px;width:auto}
         </div>
       </div>
       <div class="rev d1" style="position:relative">
-        <div class="hero-foto" id="hero-foto"><img src="assets/retrato.jpg" alt="Mulher de expressão serena e pele natural" fetchpriority="high"></div>
+        <div class="hero-foto" id="hero-foto"><img src="assets/luana-hero.jpg" alt="Luana Felinto" fetchpriority="high"></div>
         <div class="selo-flut"><b>3 aplicações</b>no tempo certo, em 12 meses</div>
       </div>
     </div>
@@ -473,7 +473,6 @@ footer img{height:56px;width:auto}
         <div class="barra-c avulso rev d2"><div class="topo"><span>Três sessões avulsas, à vista</span><b class="num js-avulso"></b></div><div class="trilho"><i data-w="100"></i></div></div>
         <div class="barra-c clube rev d2"><div class="topo"><span>Três sessões no Clube</span><b class="num js-clube-total"></b></div><div class="trilho"><i class="js-clube-w"></i></div><small>12x de R$ 199 no cartão</small></div>
         <div class="economia rev d3">
-          <div><small>Por sessão</small><b class="num js-sessao"></b></div>
           <div><small>Você economiza</small><b class="num js-eco"></b></div>
           <div><small>Por dia</small><b class="num js-dia"></b></div>
         </div>
@@ -661,7 +660,6 @@ const total = MENSAL*PARCELAS, totalAv = AVULSO_SESSAO*SESSOES;
 document.querySelector('.js-avulso').textContent = brl0(totalAv);
 document.querySelector('.js-clube-total').textContent = brl0(total);
 document.querySelector('.js-clube-w').dataset.w = (total/totalAv*100).toFixed(1);
-document.querySelector('.js-sessao').textContent = brl0(total/SESSOES);
 document.querySelector('.js-eco').textContent = brl0(totalAv-total);
 document.querySelector('.js-dia').textContent = brl2(MENSAL/30);
 
