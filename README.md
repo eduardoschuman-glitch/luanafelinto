@@ -6,5 +6,6 @@ Uma pasta por serviço, publicadas pelo GitHub Pages.
 |---|---|
 | Lisa o Ano Todo | https://eduardoschuman-glitch.github.io/luanafelinto/lisa-o-ano-todo/ |
 | Beauty Bank | https://eduardoschuman-glitch.github.io/luanafelinto/beauty-bank/ |
+| Clube do Botox | https://eduardoschuman-glitch.github.io/luanafelinto/clube-do-botox/ |
 
 Fotos, vídeos e logos ficam no repositório `luanafelinto-midia`.
