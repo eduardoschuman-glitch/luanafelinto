@@ -49,6 +49,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .section { padding: var(--section) 0; }
 .bg-sand { background: var(--areia); }
 .bg-cream { background: var(--creme); }
+.bg-cafe { background: var(--cafe); }
 
 /* Tipografia */
 .label {
@@ -260,38 +261,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .device { margin: 160px 8% 0 auto; max-width: 520px; }
 }
 
-/* Bloco 6. Carrossel */
-.carousel { position: relative; }
-.car-frame { border: 1px solid var(--taupe); padding: 12px; }
-.car-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
-.car-track::-webkit-scrollbar { display: none; }
-.car-slide { flex: 0 0 100%; scroll-snap-align: start; }
-.ad-img { position: relative; }
-.ad-img img { width: 100%; aspect-ratio: 3 / 2; object-fit: contain; background: var(--areia); }
-.ad-tag { position: absolute; top: 10px; padding: 6px 10px; background: var(--areia); color: var(--cafe); font: 400 9px/1 var(--f-sans); letter-spacing: .2em; text-transform: uppercase; }
-.ad-tag-a { left: 10px; }
-.ad-tag-b { left: calc(50% + 10px); }
-.car-name { padding: 22px 0 10px; text-align: center; font: 400 15px/1.2 var(--f-display); letter-spacing: .14em; text-transform: uppercase; }
-.car-arrow { display: none; }
-.car-dots { display: flex; justify-content: center; gap: 4px; margin-top: 16px; }
-.car-dots button { width: 48px; height: 48px; display: grid; place-items: center; }
-.car-dots i { width: 6px; height: 6px; border-radius: 50%; border: 1px solid var(--cafe); opacity: .5; transition: opacity .18s var(--ease), background-color .18s var(--ease); }
-.car-dots [aria-selected="true"] i { background: var(--cafe); opacity: 1; }
-@media (min-width: 900px) {
-  .carousel { padding: 0 88px; }
-  .car-frame { padding: 16px; }
-  .ad-tag { top: 16px; padding: 7px 12px; font-size: 10px; }
-  .ad-tag-a { left: 16px; } .ad-tag-b { left: calc(50% + 16px); }
-  .car-name { font-size: 17px; padding-top: 28px; }
-  .car-arrow { display: grid; place-items: center; position: absolute; top: calc(50% - 60px); width: 56px; height: 56px; transition: opacity .18s var(--ease); }
-  .car-arrow:hover { opacity: .72; }
-  .car-prev { left: 0; } .car-next { right: 0; }
-  .car-arrow span { width: 14px; height: 14px; border-left: 1px solid var(--cafe); border-bottom: 1px solid var(--cafe); }
-  .car-prev span { transform: translateX(3px) rotate(45deg); }
-  .car-next span { transform: translateX(-3px) rotate(-135deg); }
-}
-
-/* Bloco 7. Regiões */
+/* Bloco 6. Regiões */
 .regions { margin-top: 48px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--taupe-soft); }
 .regions li { padding: 28px 16px 28px 0; border-bottom: 1px solid var(--taupe-soft); }
 .regions li:nth-child(2n) { padding-left: 16px; padding-right: 0; border-left: 1px solid var(--taupe-soft); }
@@ -307,7 +277,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .editorial-rev .ed-photo { margin-top: 0; }
 }
 
-/* Bloco 8. Plano */
+/* Bloco 7. Plano */
 .plan { display: grid; gap: 48px; }
 .plan-card { background: var(--areia); padding: 12px; }
 .plan-inner { border: 1px solid var(--taupe); padding: 56px 24px; text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -338,7 +308,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .price-value { font-size: 15px; }
 }
 
-/* Bloco 9. Comparativo */
+/* Bloco 8. Comparativo */
 .cmp-head { display: none; }
 .cmp-row { padding: 32px 0; border-top: 1px solid var(--taupe-soft); }
 .cmp-row:last-child { border-bottom: 1px solid var(--taupe-soft); }
@@ -357,7 +327,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .cmp-b { margin: 0; font-size: 20px; }
 }
 
-/* Bloco 10. Abas */
+/* Bloco 9. Abas */
 .tab-list { display: flex; justify-content: center; gap: 28px; border-bottom: 1px solid var(--taupe-soft); margin-bottom: 40px; }
 .tab { min-height: 52px; font: 400 11px/1.2 var(--f-sans); letter-spacing: .2em; text-transform: uppercase; color: var(--cafe-70); position: relative; padding: 0 2px; transition: color .18s var(--ease); }
 .tab::after { content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: var(--cafe); opacity: 0; transition: opacity .32s var(--ease); }
@@ -375,7 +345,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   .care li { grid-template-columns: 72px 1fr; padding: 26px 0; }
 }
 
-/* Bloco 11. FAQ */
+/* Bloco 10. FAQ */
 .faq details { border-top: 1px solid var(--taupe-soft); }
 .faq details:last-child { border-bottom: 1px solid var(--taupe-soft); }
 .faq summary { list-style: none; cursor: pointer; min-height: 72px; padding: 22px 48px 22px 0; position: relative; font: 400 16px/1.5 var(--f-sans); color: var(--cafe); display: flex; align-items: center; }
@@ -389,7 +359,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .faq details p { padding: 0 48px 28px 0; max-width: var(--measure); animation: fadeIn .32s var(--ease); }
 @media (min-width: 900px) { .faq summary { font-size: 18px; min-height: 84px; } }
 
-/* Bloco 12. Fechamento */
+/* Bloco 11. Fechamento */
 .final { position: relative; min-height: 88svh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--cafe); color: var(--branco); }
 .final-bg { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
 .final-veil { position: absolute; inset: 0; background: rgba(59,42,34,.78); }
@@ -398,7 +368,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .final-text { font-size: 17px; line-height: 1.8; max-width: 52ch; color: var(--branco); margin-bottom: 48px; }
 @media (min-width: 900px) { .final-text { font-size: 19px; margin-bottom: 56px; } }
 
-/* Bloco 13. Rodapé */
+/* Bloco 12. Rodapé */
 .footer { padding: 96px 24px 120px; text-align: center; font-size: 13px; color: var(--cafe-70); letter-spacing: .04em; }
 .footer-logo { width: 200px; height: auto; margin: 0 auto 40px; }
 .footer-links { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 4px; }

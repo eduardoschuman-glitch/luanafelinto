@@ -96,14 +96,17 @@ function rastrear(tipo, evento, dados) {
   function liberarSom() {
     if (querSom && v.muted) { v.muted = false; marcarSom(); if (naTela && !document.hidden) v.play().catch(function () { v.muted = true; marcarSom(); }); }
   }
-  ['pointerdown', 'touchstart', 'keydown'].forEach(function (ev) {
+  // O navegador só libera som depois de um toque, clique ou tecla da visitante
+  ['pointerdown', 'pointerup', 'touchend', 'click', 'keydown'].forEach(function (ev) {
     document.addEventListener(ev, function (e) { if (!frame.contains(e.target)) liberarSom(); }, { passive: true });
   });
 
+  // Toca quando aparece um terço do vídeo e só pausa quando ele sai inteiro da tela
   new IntersectionObserver(function (e) {
-    naTela = e[0].intersectionRatio >= 0.5;
-    naTela ? tocar() : v.pause();
-  }, { threshold: [0, 0.5, 1] }).observe(v);
+    var r = e[0].intersectionRatio;
+    if (r >= 0.3) { naTela = true; tocar(); }
+    else if (!e[0].isIntersecting) { naTela = false; v.pause(); }
+  }, { threshold: [0, 0.3, 1] }).observe(v);
 
   document.addEventListener('visibilitychange', function () {
     document.hidden ? v.pause() : tocar();
@@ -132,36 +135,6 @@ function rastrear(tipo, evento, dados) {
     if (v.duration) barra.style.width = (v.currentTime / v.duration * 100) + '%';
     requestAnimationFrame(atualizar);
   })();
-})();
-
-/* Carrossel antes e depois */
-(function () {
-  var track = document.querySelector('.car-track');
-  if (!track) return;
-  var slides = track.querySelectorAll('.car-slide');
-  var dots = document.querySelectorAll('.car-dots button');
-  var atual = 0;
-
-  function ir(i) {
-    atual = (i + slides.length) % slides.length;
-    track.scrollTo({ left: atual * track.clientWidth, behavior: 'auto' });
-    marcar();
-  }
-  function marcar() {
-    dots.forEach(function (d, k) { d.setAttribute('aria-selected', k === atual ? 'true' : 'false'); });
-  }
-  track.addEventListener('scroll', function () {
-    var i = Math.round(track.scrollLeft / track.clientWidth);
-    if (i !== atual) { atual = i; marcar(); }
-  }, { passive: true });
-  document.querySelector('.car-prev').addEventListener('click', function () { ir(atual - 1); });
-  document.querySelector('.car-next').addEventListener('click', function () { ir(atual + 1); });
-  dots.forEach(function (d, k) { d.addEventListener('click', function () { ir(k); }); });
-  track.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') { e.preventDefault(); ir(atual + 1); }
-    if (e.key === 'ArrowLeft') { e.preventDefault(); ir(atual - 1); }
-  });
-  window.addEventListener('resize', function () { track.scrollLeft = atual * track.clientWidth; });
 })();
 
 /* Abas de cuidados */
