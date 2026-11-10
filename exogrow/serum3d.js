@@ -172,18 +172,54 @@ const WAND0 = -0.24, BR0 = -0.35;   // relativo à boca da tampa
 const wand = new THREE.Mesh(new THREE.CylinderGeometry(0.0085, 0.0085, -WAND0, 24).rotateZ(Math.PI / 2), plastic);
 wand.position.x = WAND0 / 2; capPivot.add(wand);
 
+/* escovinha de silicone moldado: núcleo fino + aletas finas em espiral, afinando na ponta (como a do produto) */
 const brush = new THREE.Group(); capPivot.add(brush);
-const core = new THREE.Mesh(new THREE.CylinderGeometry(0.0095, 0.006, WAND0 - BR0, 20).rotateZ(Math.PI / 2), black);
+const silicone = new THREE.MeshPhysicalMaterial({ color: 0x050505, roughness: 0.42, clearcoat: 0.55, clearcoatRoughness: 0.28, envMapIntensity: 0.28 });
+const BLEN = WAND0 - BR0, RC = 0.0052;
+const core = new THREE.Mesh(new THREE.CylinderGeometry(RC, RC * 0.85, BLEN, 24).rotateZ(Math.PI / 2), silicone);
 core.position.x = (WAND0 + BR0) / 2; brush.add(core);
-class Helix extends THREE.Curve {
-  constructor(phase) { super(); this.phase = phase; }
-  getPoint(t, v = new THREE.Vector3()) {
-    const taper = 0.75 + 0.25 * Math.sin(Math.PI * Math.min(1, t * 1.15));
-    const a = this.phase + t * Math.PI * 2 * 15, r = 0.0165 * taper;
-    return v.set(BR0 + t * (WAND0 - BR0), Math.cos(a) * r, Math.sin(a) * r);
+const ponta = new THREE.Mesh(new THREE.SphereGeometry(RC * 0.85, 20, 12), silicone);
+ponta.position.x = BR0; brush.add(ponta);
+/* colar onde a haste branca entra no silicone */
+const colar = new THREE.Mesh(new THREE.CylinderGeometry(0.0098, 0.0075, 0.012, 28).rotateZ(Math.PI / 2), silicone);
+colar.position.x = WAND0 - 0.004; brush.add(colar);
+
+/* uma aleta: lâmina fina com a borda arredondada, na base mais larga */
+const aletaGeo = (() => {
+  const s = new THREE.Shape(), L = 0.0152, wb = 0.006, wt = 0.0028;
+  s.moveTo(-wb, 0); s.lineTo(wb, 0);
+  s.quadraticCurveTo(wb * 0.9, L * 0.6, wt, L * 0.92);
+  s.quadraticCurveTo(0, L * 1.06, -wt, L * 0.92);
+  s.quadraticCurveTo(-wb * 0.9, L * 0.6, -wb, 0);
+  const g = new THREE.ExtrudeGeometry(s, { depth: 0.0016, bevelEnabled: true, bevelThickness: 0.0007, bevelSize: 0.0006, bevelSegments: 3, curveSegments: 10 });
+  g.translate(0, 0, -0.0008);
+  g.rotateY(Math.PI / 2);            // espessura ao longo do eixo da escovinha
+  return g;
+})();
+const POS = 58, POR = 4;            // 58 fileiras ao longo do eixo, 3 aletas por fileira
+const aletas = new THREE.InstancedMesh(aletaGeo, silicone, POS * POR);
+const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), v = new THREE.Vector3(), sc = new THREE.Vector3();
+let rnd = 7; const r = () => ((rnd = (rnd * 16807) % 2147483647) / 2147483647);
+let n = 0;
+const sstep = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+for (let i = 0; i < POS; i++) {
+  const t = i / (POS - 1);                         // 0 = ponta, 1 = base
+  const x = BR0 + 0.004 + t * (BLEN - 0.012);
+  const tam = 0.45 + 0.55 * sstep(0, 0.32, t) - 0.12 * sstep(0.88, 1, t);
+  for (let k = 0; k < POR; k++) {
+    const ang = i * 0.42 + k * (Math.PI * 2 / POR) + (r() - 0.5) * 0.12;   // espiral
+    e.set(ang, 0, 0, 'XYZ'); q.setFromEuler(e);
+    const inc = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), 0.5 + (r() - 0.5) * 0.3);   // aleta inclinada, como no molde
+    q.multiply(inc);
+    v.set(x, 0, 0);
+    sc.set(1, tam * (0.86 + r() * 0.2), 1);
+    m4.compose(v, q, sc);
+    m4.multiply(new THREE.Matrix4().makeTranslation(0, RC * 0.6 / sc.y, 0));
+    aletas.setMatrixAt(n++, m4);
   }
 }
-[0, Math.PI].forEach(ph => brush.add(new THREE.Mesh(new THREE.TubeGeometry(new Helix(ph), 600, 0.0068, 8, false), black)));
+aletas.instanceMatrix.needsUpdate = true;
+brush.add(aletas);
 
 /* ---------- estado animado pelo scroll ---------- */
 const st = { x: 0, y: 0, rot: -90, s: 1, roll: -32, open: 0, tilt: 0, f: 0 };
@@ -244,7 +280,7 @@ tl.to(st, { x: () => M() ? -VW() * .19 : -VW() * .19, duration: .75, ease: io },
 tl.fromTo('.chip', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, stagger: .1, duration: .25, immediateRender: true }, 5.75);
 
 /* 6: a câmera chega na escovinha (como usar) */
-tl.to(st, { f: 1, s: () => M() ? 2.6 : 2.4, x: () => M() ? 0 : VW() * .2, y: () => M() ? -VH() * .24 : 0, rot: () => M() ? -18 : -24, roll: -372, duration: .6, ease: io }, 6.45);
+tl.to(st, { f: 1, s: () => M() ? 3.4 : 3.6, x: () => M() ? 0 : VW() * .2, y: () => M() ? -VH() * .24 : 0, rot: () => M() ? -18 : -24, roll: -372, duration: .6, ease: io }, 6.45);
 tl.to(st, { rot: () => M() ? -8 : -14, roll: -350, duration: .6 }, 7.05);
 
 /* 7: fecha, fica de pé no centro e sobe com a página */
