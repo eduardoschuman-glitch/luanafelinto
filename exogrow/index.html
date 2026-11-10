@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sérum EXOGROW · Por Luana Felinto</title>
+<meta name="description" content="Sérum EXOGROW para cílios e sobrancelhas, por Luana Felinto. Fios mais cheios e mais fortes, com uso em casa uma a duas vezes ao dia.">
+<meta name="theme-color" content="#0b0b0b">
+<meta property="og:title" content="Sérum EXOGROW · Por Luana Felinto">
+<meta property="og:description" content="O sérum de cílios e sobrancelhas da Luana Felinto. Uso em casa, 1 a 2 vezes ao dia.">
+<meta property="og:image" content="assets/fotos/luana-serum.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400&family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/produto/base.webp">
+<style>
+:root{
+  --bg:#0b0b0b; --bg2:#151515; --bg3:#1d1d1d;
+  --tx:#f4f3f0; --tx2:#9a9a97; --tx3:#5f5f5c; --line:rgba(255,255,255,.12);
+  --L:min(62vw,1150px);
+  --pad:clamp(20px,4vw,64px);
+  --sans:'Montserrat',system-ui,sans-serif; --serif:'Cinzel',serif;
+}
+@media (max-width:767px){ :root{ --L:92vw; } }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--tx);overflow-x:clip}
+body{font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.5}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+
+/* ---------- tipografia ---------- */
+.eyebrow{font-family:var(--serif);font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--tx);opacity:.75}
+.h-xl{font-weight:200;font-size:clamp(44px,7.4vw,124px);line-height:1.02;letter-spacing:-.025em}
+.h-lg{font-weight:200;font-size:clamp(36px,5.2vw,86px);line-height:1.05;letter-spacing:-.02em}
+.h-md{font-weight:300;font-size:clamp(28px,3.4vw,54px);line-height:1.1;letter-spacing:-.015em}
+.fade{background:linear-gradient(90deg,var(--tx) 0%,var(--tx) 55%,#6d6d6a 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.muted{color:var(--tx2)}
+.p{font-size:clamp(15px,1.15vw,18px);color:var(--tx2);max-width:34em}
+.wm{font-family:var(--sans);letter-spacing:.06em;white-space:nowrap}
+.wm b{font-weight:700}
+.wm span{font-weight:200}
+
+/* ---------- topo ---------- */
+.topo{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:22px var(--pad);pointer-events:none}
+.topo>*{pointer-events:auto}
+.topo .marca{mix-blend-mode:difference;display:flex;align-items:baseline;gap:10px;font-size:17px}
+.topo .marca i{font-family:var(--script);font-style:normal;font-size:24px;padding:0 .3em;line-height:1}
+.topo nav{display:flex;gap:30px;font-size:13px;letter-spacing:.04em;mix-blend-mode:difference}
+.topo nav a{opacity:.8;transition:opacity .3s}
+.topo nav a:hover{opacity:1}
+.btn-pill{background:var(--tx);color:#0b0b0b;font-size:13px;font-weight:500;padding:11px 22px;border-radius:999px;letter-spacing:.02em;transition:transform .3s}
+.btn-pill:hover{transform:translateY(-2px)}
+@media (max-width:900px){ .topo nav{display:none} .topo .marca i{display:none} }
+
+/* ---------- palco fixo do produto ---------- */
+#stage{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+.fallback{display:none;position:absolute;left:50%;top:50%;width:var(--L);transform:translate(-50%,-50%) rotate(-30deg)}
+.no-gl .fallback{display:block}
+
+/* ---------- jornada (scroll do produto) ---------- */
+#jornada{position:relative}
+.cena{position:relative;height:100vh}
+.cena.h120{height:120vh} .cena.h160{height:160vh}
+.fixo{position:sticky;top:0;height:100vh}
+.txt{position:relative;z-index:2;mix-blend-mode:difference}
+.abs{position:absolute}
+
+/* hero */
+.hero .titulo{position:absolute;left:0;right:0;top:11vh;text-align:center;z-index:2;mix-blend-mode:difference}
+.hero .titulo .wm{font-size:clamp(64px,15vw,250px);line-height:.9;letter-spacing:.02em}
+.por{display:block;margin:0 auto;aspect-ratio:1978/400;background:var(--tx);-webkit-mask:url(assets/assinatura-por-luana-felinto.png) center/contain no-repeat;mask:url(assets/assinatura-por-luana-felinto.png) center/contain no-repeat}
+.hero .titulo .por{width:clamp(200px,30vw,500px);margin-top:.6em}
+.hero .sub{position:absolute;left:50%;transform:translateX(-50%);top:58vh;width:min(92vw,760px);text-align:center;font-size:clamp(18px,1.9vw,27px);line-height:1.35;font-weight:300;color:var(--tx2);z-index:2;mix-blend-mode:difference}
+.hero .sub strong{color:var(--tx);font-weight:400}
+.cta-colchete{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:18px 44px;font-size:15px;letter-spacing:.03em;color:var(--tx);pointer-events:auto}
+.cta-colchete::before,.cta-colchete::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--tx);transition:all .35s}
+.cta-colchete::before{left:0;bottom:0;border-right:0;border-top:0;border-bottom-left-radius:10px}
+.cta-colchete::after{right:0;top:0;border-left:0;border-bottom:0;border-top-right-radius:10px}
+.cta-colchete:hover::before{left:-6px;bottom:-6px}.cta-colchete:hover::after{right:-6px;top:-6px}
+.hero .cta-wrap{position:absolute;left:0;right:0;top:75vh;text-align:center;z-index:2;mix-blend-mode:difference}
+.hero .rodape{position:absolute;left:0;right:0;bottom:4vh;text-align:center;font-size:13px;color:var(--tx3);z-index:2;mix-blend-mode:difference;padding:0 20px}
+
+.c1 .txt{position:absolute;top:13vh;left:0;right:0;text-align:center}
+.c2 .txt.t{position:absolute;top:12vh;left:0;right:0;text-align:center}
+.spec{position:absolute;top:61vh;text-align:center;z-index:2;mix-blend-mode:difference}
+.spec small{display:block;font-family:var(--serif);font-size:12px;letter-spacing:.3em;text-transform:uppercase;opacity:.7;margin-bottom:6px}
+.spec span{font-size:clamp(20px,2vw,30px);font-weight:300}
+.spec.a{left:30%;transform:translateX(-50%)} .spec.b{left:70%;transform:translateX(-50%)}
+.c3 .txt{position:absolute;top:14vh;left:var(--pad);max-width:640px}
+.c3 .txt .p{margin-top:22px}
+.c4 .txt{position:absolute;top:50%;transform:translateY(-50%);right:var(--pad);width:min(520px,42vw)}
+.c4 .txt .p{margin-top:24px}
+.c5 .txt.t{position:absolute;top:13vh;left:var(--pad)}
+.chips{position:absolute;left:var(--pad);right:var(--pad);bottom:8vh;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,32px);z-index:2;mix-blend-mode:difference}
+.chip{border-top:1px solid rgba(255,255,255,.35);padding-top:16px}
+.chip b{display:block;font-weight:400;font-size:clamp(17px,1.5vw,22px);margin-bottom:6px}
+.chip span{font-size:14px;color:var(--tx2)}
+.c6 .txt{position:absolute;top:50%;transform:translateY(-50%);left:var(--pad);width:min(520px,44vw)}
+.passos{list-style:none;margin-top:34px;display:grid;gap:26px}
+.passos li{display:grid;grid-template-columns:44px 1fr;gap:14px;border-top:1px solid var(--line);padding-top:20px}
+.passos li i{font-style:normal;font-size:13px;color:var(--tx3);padding-top:6px}
+.passos li b{display:block;font-weight:400;font-size:clamp(19px,1.6vw,24px);margin-bottom:4px}
+.passos li span{font-size:15px;color:var(--tx2)}
+.c7{background-image:radial-gradient(rgba(255,255,255,.28) 1.2px,transparent 1.6px);background-size:clamp(90px,10vw,150px) clamp(90px,10vw,150px);background-position:center}
+.c7 .txt{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center}
+.c7 .txt .p{margin:26px auto 0}
+
+@media (max-width:767px){
+  .hero .titulo{top:15vh}
+  .hero .sub{top:52vh}
+  .hero .cta-wrap{top:72vh}
+  .spec{top:64vh} .spec.a{left:27%} .spec.b{left:73%}
+  .c3 .txt{top:12vh;right:var(--pad)}
+  .c4 .txt{top:auto;bottom:9vh;transform:none;left:var(--pad);right:var(--pad);width:auto}
+  .c5 .txt.t{top:12vh;right:var(--pad)}
+  .chips{grid-template-columns:1fr 1fr;bottom:6vh;gap:18px 16px}
+  .chip span{font-size:13px}
+  .c6 .txt{top:auto;bottom:6vh;transform:none;left:var(--pad);right:var(--pad);width:auto}
+  .passos{margin-top:18px;gap:14px}
+  .passos li{padding-top:12px;grid-template-columns:34px 1fr}
+  .passos li span{font-size:13.5px}
+}
+
+/* ---------- seções normais ---------- */
+.sec{position:relative;z-index:3;background:var(--bg);padding:clamp(90px,12vw,180px) var(--pad)}
+.sec-head{max-width:1200px;margin:0 auto clamp(40px,5vw,70px)}
+.sec-head .eyebrow{display:block;margin-bottom:18px}
+
+/* resultados */
+#resultados{padding-left:0;padding-right:0;overflow:hidden}
+#resultados .sec-head{padding:0 var(--pad)}
+#resultados .sec-head .p{margin-top:20px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.track{display:flex;gap:18px;width:max-content;animation:mq 80s linear infinite}
+@keyframes mq{to{transform:translateX(calc(-50% - 9px))}}
+.caso{position:relative;height:clamp(340px,40vw,560px);border-radius:24px;overflow:hidden;flex:none;background:var(--bg2)}
+.caso img{height:100%;width:auto}
+.caso .lb{position:absolute;left:16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.42);padding:6px 11px;border-radius:999px;backdrop-filter:blur(6px)}
+.caso .lb.an{top:16px}.caso .lb.de{top:calc(50% + 16px)}
+.nota{max-width:1200px;margin:28px auto 0;padding:0 var(--pad);font-size:13px;color:var(--tx3)}
+
+/* telão (vídeo de fundo) */
+#telao{position:relative;z-index:3;height:110vh;min-height:720px;overflow:hidden;background:#000}
+#telao .blur{position:absolute;inset:-10%;background:url(https://eduardoschuman-glitch.github.io/luanafelinto-midia/posters/poster-exogrow-telao.jpg) center/cover;filter:blur(70px) brightness(.32) saturate(.6);transform:scale(1.1)}
+#telao video{position:absolute;left:50%;top:0;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%);object-fit:cover;pointer-events:none}
+#telao .veu{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.25) 32%,rgba(0,0,0,0) 42%,rgba(0,0,0,0) 58%,rgba(0,0,0,.25) 68%,rgba(0,0,0,.85) 100%);pointer-events:none}
+#telao .lado{position:absolute;top:50%;transform:translateY(-50%);width:min(430px,calc((100vw - max(110vh,720px) * .5625) / 2 - var(--pad) - 24px))}
+#telao .lado .h-md{font-size:clamp(24px,2.6vw,46px)}
+#telao .lado.e{left:var(--pad)} #telao .lado.d{right:var(--pad);text-align:right}
+#telao .lado.d .p{margin-left:auto}
+#telao .lado .eyebrow{display:block;margin-bottom:18px}
+#telao .lado .p{margin-top:20px;color:#bdbdb9}
+@media (max-width:900px){
+  #telao{height:100vh;min-height:620px}
+  #telao video{width:100%;height:100%;left:0;transform:none}
+  #telao .blur{display:none}
+  #telao .veu{background:linear-gradient(180deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.35) 22%,rgba(0,0,0,0) 36%,rgba(0,0,0,0) 50%,rgba(0,0,0,.9) 100%)}
+  #telao .lado.e{top:12vh;transform:none;left:var(--pad);right:var(--pad);width:auto}
+  #telao .lado.d{top:auto;bottom:7vh;transform:none;left:var(--pad);right:var(--pad);width:auto;text-align:left}
+  #telao .lado.d .p{margin-left:0}
+}
+
+/* por que (lista numerada) */
+.porque{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,6vw,90px);align-items:center}
+.porque figure{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--bg2)}
+.porque figure img{width:100%;height:100%;object-fit:cover}
+.acc{list-style:none}
+.acc li{border-bottom:1px solid var(--line);padding:30px 0;cursor:pointer}
+.acc li:first-child{border-top:1px solid var(--line)}
+.acc .tt{display:grid;grid-template-columns:54px 1fr;align-items:baseline}
+.acc .tt i{font-style:normal;font-size:13px;color:var(--tx3);transition:color .3s}
+.acc .tt h3{font-weight:300;font-size:clamp(24px,2.4vw,38px);letter-spacing:-.01em}
+.acc .ct{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
+.acc .ct>div{overflow:hidden;padding-left:54px}
+.acc .ct p{font-size:15px;color:var(--tx2);padding-top:16px;max-width:36em}
+.acc li.on .ct{grid-template-rows:1fr}
+.acc li.on .tt i{color:var(--tx)}
+@media (max-width:860px){ .porque{grid-template-columns:1fr} .acc .ct>div{padding-left:0} .acc .tt{grid-template-columns:40px 1fr} }
+
+/* oferta */
+#oferta{text-align:center}
+#oferta .h-lg{max-width:900px;margin:0 auto}
+.card{max-width:980px;margin:clamp(40px,5vw,70px) auto 0;background:var(--bg2);border-radius:32px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;text-align:left}
+.card .vis{position:relative;background:radial-gradient(120% 90% at 50% 40%,#2a2a2a 0%,#111 70%);display:flex;align-items:center;justify-content:center;min-height:420px;overflow:hidden}
+.card .vis img{width:130%;max-width:none;transform:rotate(-28deg);filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.card .info{padding:clamp(28px,4vw,52px)}
+.card .info .eyebrow{display:block;margin-bottom:14px}
+.card h3{font-weight:300;font-size:clamp(26px,2.4vw,36px);line-height:1.15}
+.card ul{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
+.card li{display:flex;gap:12px;font-size:15px;color:#cfcfcb}
+.card li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:radial-gradient(circle,#fff 0 3px,transparent 3.5px)}
+.card .preco{font-size:14px;color:var(--tx2);margin-bottom:18px}
+.card .preco strong{display:block;color:var(--tx);font-weight:300;font-size:clamp(30px,3vw,44px);letter-spacing:-.01em}
+.btn-full{display:block;text-align:center;background:var(--tx);color:#0b0b0b;font-weight:500;font-size:15px;padding:18px;border-radius:999px;transition:transform .3s}
+.btn-full:hover{transform:translateY(-2px)}
+.card small{display:block;margin-top:14px;font-size:12px;color:var(--tx3);text-align:center}
+@media (max-width:820px){ .card{grid-template-columns:1fr} .card .vis{min-height:260px} }
+
+/* faq */
+.faq{max-width:900px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:26px 0}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-size:clamp(18px,1.6vw,23px);font-weight:300}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:200;font-size:28px;line-height:1;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:14px;color:var(--tx2);font-size:15px;max-width:44em}
+
+/* rodapé */
+footer{position:relative;z-index:3;background:var(--bg);padding:clamp(70px,9vw,130px) var(--pad) 40px;text-align:center;border-top:1px solid var(--line)}
+footer .wm{font-size:clamp(48px,11vw,180px);line-height:.9}
+footer .por{width:clamp(180px,22vw,380px);margin-top:1em}
+footer .cl{font-family:var(--serif);letter-spacing:.3em;text-transform:uppercase;font-size:12px;color:var(--tx2);margin-top:40px}
+footer .links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 28px;margin-top:22px;font-size:14px;color:var(--tx2)}
+footer .legal{margin-top:46px;font-size:11.5px;color:var(--tx3);max-width:760px;margin-left:auto;margin-right:auto;line-height:1.6}
+
+/* revelação */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.flutua{position:fixed;left:50%;bottom:18px;white-space:nowrap;box-shadow:0 10px 30px rgba(0,0,0,.5);transform:translate(-50%,120%);z-index:30;transition:transform .5s ease;display:none}
+.flutua.on{transform:translate(-50%,0)}
+@media (max-width:767px){ .flutua{display:block} }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <a href="#topo" class="marca"><span class="wm"><b>EXO</b><span>GROW</span></span></a>
+  <nav>
+    <a href="#formula">A fórmula</a>
+    <a href="#como-usar">Como usar</a>
+    <a href="#resultados">Resultados</a>
+    <a href="#faq">Dúvidas</a>
+  </nav>
+  <a class="btn-pill js-wa" href="#">Quero o meu</a>
+</header>
+
+<!-- palco fixo: o sérum que se move com o scroll -->
+<div id="stage" aria-hidden="true">
+  <canvas id="gl"></canvas>
+  <img class="fallback" id="fallback" src="assets/produto/base.webp" alt="">
+</div>
+
+<main id="topo">
+<div id="jornada">
+
+  <!-- 0 · hero -->
+  <section class="cena hero">
+    <h1 class="titulo"><span class="wm"><b>EXO</b><span>GROW</span></span><span class="por" role="img" aria-label="Por Luana Felinto"></span></h1>
+    <p class="sub">O sérum de cílios e sobrancelhas da Luana Felinto para os seus fios <strong>crescerem mais cheios, mais fortes e seus de verdade.</strong></p>
+    <div class="cta-wrap"><a class="cta-colchete js-wa" href="#">Quero o meu EXOGROW</a></div>
+    <p class="rodape">Lançamento. Uso em casa, uma a duas vezes ao dia. Registrado na Anvisa.</p>
+  </section>
+
+  <!-- 1 · diagonal -->
+  <section class="cena c1">
+    <div class="txt"><h2 class="h-xl"><span class="fade">Menos falhas.</span><br><span class="fade">Mais fios.</span></h2></div>
+  </section>
+
+  <!-- 2 · horizontal com medidas -->
+  <section class="cena c2">
+    <div class="txt t"><h2 class="h-lg"><span class="fade">Cabe na sua rotina.</span></h2></div>
+    <div class="spec a"><small>Sérum</small><span>7 g</span></div>
+    <div class="spec b"><small>Uso</small><span>1 a 2x ao dia</span></div>
+  </section>
+
+  <!-- 3 · gira e mostra o rótulo -->
+  <section class="cena c3">
+    <div class="txt">
+      <span class="eyebrow">Dois em um</span>
+      <h2 class="h-lg" style="margin-top:16px"><span class="fade">Sobrancelhas e cílios</span><br><span class="fade">no mesmo gesto.</span></h2>
+      <p class="p">A mesma escovinha que passa nos fios da sobrancelha vai na raiz dos cílios. Um produto, uma rotina, os dois emoldurando o seu olhar.</p>
+    </div>
+  </section>
+
+  <!-- 4 · close no frasco -->
+  <section class="cena h120 c4" id="formula">
+    <div class="fixo">
+      <div class="txt">
+        <span class="eyebrow">A fórmula</span>
+        <h2 class="h-lg" style="margin-top:16px"><span class="fade">Fortifica.</span><br><span class="fade">Fortalece.</span><br><span class="fade">Estimula.</span></h2>
+        <p class="p">Ativos que cuidam do fio da raiz à ponta: hidratação intensa, ação prebiótica e efeito filmógeno, uma película leve que protege o fio enquanto ele cresce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · o sérum abre -->
+  <section class="cena h160 c5">
+    <div class="fixo">
+      <div class="txt t"><h2 class="h-lg"><span class="fade">Abra.</span><br><span class="fade">Aplique.</span><br><span class="fade">Deixe crescer.</span></h2></div>
+      <div class="chips">
+        <div class="chip"><b>Aminoácidos</b><span>A matéria-prima do fio.</span></div>
+        <div class="chip"><b>Vitamina E</b><span>Antioxidante que protege.</span></div>
+        <div class="chip"><b>Aloe vera</b><span>Hidrata e acalma a pele.</span></div>
+        <div class="chip"><b>Pantenol</b><span>Maciez e resistência.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · close no pincel: como usar -->
+  <section class="cena h120 c6" id="como-usar">
+    <div class="fixo">
+      <div class="txt">
+        <span class="eyebrow">Como usar</span>
+        <h2 class="h-md" style="margin-top:16px"><span class="fade">Um minuto do seu dia.</span></h2>
+        <ol class="passos">
+          <li><i>01</i><div><b>Sobrancelha limpa</b><span>Sem maquiagem e sem resíduo, para o sérum chegar até a raiz.</span></div></li>
+          <li><i>02</i><div><b>Uma a duas vezes ao dia</b><span>Passe a escovinha nas sobrancelhas e, se quiser, na raiz dos cílios.</span></div></li>
+          <li><i>03</i><div><b>No mínimo 90 dias</b><span>É o tempo do fio crescer. Para manter o resultado, siga com o uso diário.</span></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · de pé, fecha a jornada -->
+  <section class="cena h120 c7">
+    <div class="fixo">
+      <div class="txt">
+        <h2 class="h-xl"><span class="fade">Sem pigmento.</span><br><span class="fade">Sem fio emprestado.</span></h2>
+        <p class="p">Nada de desenhar o que o seu pelo pode voltar a fazer. O EXOGROW cuida do fio que é seu.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- antes e depois -->
+<section class="sec" id="resultados">
+  <div class="sec-head">
+    <span class="eyebrow rv">Resultados reais</span>
+    <h2 class="h-lg rv"><span class="fade">Fios que voltam</span><br><span class="fade">a aparecer.</span></h2>
+    <p class="p rv">Clientes da clínica antes e depois do protocolo EXOGROW, com o sérum no cuidado de casa. Sem filtro, sem pigmento, só fio.</p>
+  </div>
+  <div class="marquee">
+    <div class="track" id="track">
+      <figure class="caso"><img src="assets/antes-depois/caso-01.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"><span class="lb an">Antes</span><span class="lb de">Depois</span></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-02.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-03.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"><span class="lb an">Antes</span><span class="lb de">Depois</span></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-04.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"><span class="lb an">Antes</span><span class="lb de">Depois</span></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-05.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-06.jpg" alt="Sobrancelhas antes e depois do EXOGROW" loading="lazy"><span class="lb an">Antes</span><span class="lb de">Depois</span></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-07.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"></figure>
+      <figure class="caso"><img src="assets/antes-depois/caso-08.jpg" alt="Sobrancelha antes e depois do EXOGROW" loading="lazy"><span class="lb an">Antes</span><span class="lb de">Depois</span></figure>
+    </div>
+  </div>
+  <p class="nota">Cada organismo responde no seu tempo. Fotos de clientes da Luana Felinto Beauty Clinic, publicadas com autorização.</p>
+</section>
+
+<!-- telão: vídeo em loop como fundo da dobra -->
+<section id="telao" aria-label="Vídeo do EXOGROW">
+  <div class="blur"></div>
+  <video id="telaoV" muted loop playsinline autoplay preload="none" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback noplaybackrate" tabindex="-1" aria-hidden="true"
+    poster="https://eduardoschuman-glitch.github.io/luanafelinto-midia/posters/poster-exogrow-telao.jpg"
+    data-src="https://eduardoschuman-glitch.github.io/luanafelinto-midia/videos/exogrow-telao.mp4?v=1"></video>
+  <div class="veu"></div>
+  <div class="lado e rv">
+    <span class="eyebrow">Por Luana Felinto</span>
+    <h2 class="h-md"><span class="fade">Da cadeira da clínica</span><br><span class="fade">para a sua rotina.</span></h2>
+  </div>
+  <div class="lado d rv">
+    <p class="p">O cuidado de casa que acompanha o protocolo EXOGROW da clínica, agora para você usar todos os dias, no seu tempo.</p>
+  </div>
+</section>
+
+<!-- por que confiar -->
+<section class="sec">
+  <div class="porque">
+    <figure class="rv"><img src="assets/fotos/luana-aplicando.jpg" alt="Luana Felinto aplicando o sérum EXOGROW na sobrancelha" loading="lazy"></figure>
+    <div>
+      <span class="eyebrow rv" style="display:block;margin-bottom:18px">Por que o EXOGROW</span>
+      <h2 class="h-md rv" style="margin-bottom:36px"><span class="fade">Assinado por quem cuida</span><br><span class="fade">de sobrancelha todo dia.</span></h2>
+      <ul class="acc rv" id="acc">
+        <li class="on"><div class="tt"><i>01</i><h3>A assinatura da Luana</h3></div><div class="ct"><div><p>O EXOGROW nasceu dentro da clínica, do protocolo que a Luana aplica em quem chega com sobrancelha rala, falhada ou cansada de tanta pinça. O sérum leva esse cuidado para a sua casa.</p></div></div></li>
+        <li><div class="tt"><i>02</i><h3>Registrado na Anvisa</h3></div><div class="ct"><div><p>Fabricado no Brasil pela Botanik Kosmetics, com processo Anvisa nº 25351231857/2025-87 e farmacêutica responsável. Uso externo, para sobrancelhas e raiz dos cílios.</p></div></div></li>
+        <li><div class="tt"><i>03</i><h3>O fio é seu</h3></div><div class="ct"><div><p>Sem agulha, sem pigmento e sem tempo de recuperação. O sérum trabalha com os fios que você já tem, para que eles cresçam mais fortes e preencham as falhas.</p></div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- oferta -->
+<section class="sec" id="oferta">
+  <span class="eyebrow rv" style="display:block;margin-bottom:18px">Lançamento</span>
+  <h2 class="h-lg rv"><span class="fade">Comece hoje</span><br><span class="fade">os seus 90 dias.</span></h2>
+  <div class="card rv">
+    <div class="vis"><img src="assets/produto/tres-quartos.webp" alt="Sérum EXOGROW"></div>
+    <div class="info">
+      <span class="eyebrow">Sérum EXOGROW · 7 g</span>
+      <h3>Cílios e sobrancelhas mais cheios, com os seus próprios fios.</h3>
+      <ul>
+        <li>Sérum para sobrancelhas e raiz dos cílios</li>
+        <li>Escovinha aplicadora de precisão</li>
+        <li>Aminoácidos, vitamina E, aloe vera e pantenol</li>
+        <li>Orientação da equipe Luana Felinto pelo WhatsApp</li>
+      </ul>
+      <!-- PREÇO: trocar o texto abaixo pelo valor de lançamento quando a Luana confirmar -->
+      <div class="preco"><strong>Condição de lançamento</strong>com a nossa equipe, pelo WhatsApp</div>
+      <a class="btn-full js-wa" href="#">Quero o meu EXOGROW</a>
+      <small>Você fala direto com a equipe da clínica.</small>
+    </div>
+  </div>
+</section>
+
+<!-- dúvidas -->
+<section class="sec" id="faq">
+  <div class="sec-head" style="max-width:900px">
+    <span class="eyebrow rv">Dúvidas</span>
+    <h2 class="h-lg rv" style="margin-top:16px"><span class="fade">Antes de começar.</span></h2>
+  </div>
+  <div class="faq rv">
+    <details><summary>Em quanto tempo vejo resultado?</summary><p>O uso indicado é de no mínimo 90 dias, o tempo que o fio leva para crescer. A constância faz a diferença: uma a duas aplicações por dia, todos os dias.</p></details>
+    <details><summary>Posso usar nos cílios?</summary><p>Pode. Aplique na raiz dos cílios, como indicado na embalagem. Evite o contato direto com os olhos e, se acontecer, enxágue com bastante água.</p></details>
+    <details><summary>Funciona em qualquer sobrancelha?</summary><p>Ele estimula os fios que você ainda tem. Falha muito antiga, sem fio nenhum, pede outra conduta. Se tiver dúvida, a equipe avalia o seu caso pelo WhatsApp.</p></details>
+    <details><summary>Depois dos 90 dias, eu paro?</summary><p>Para manter o resultado, a orientação é seguir com o uso diário do sérum.</p></details>
+    <details><summary>Como faço para comprar?</summary><p>Toque em "Quero o meu EXOGROW" e fale com a equipe da clínica pelo WhatsApp. Ela confirma a condição de lançamento e a forma de entrega.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wm"><b>EXO</b><span>GROW</span></div>
+  <span class="por" role="img" aria-label="Por Luana Felinto"></span>
+  <p class="cl">Luana Felinto Beauty Clinic · Porto Alegre</p>
+  <div class="links">
+    <a class="js-wa" href="#">WhatsApp</a>
+    <a href="https://www.instagram.com/luanafelintobeauty/" target="_blank" rel="noopener">@luanafelintobeauty</a>
+    <a href="https://luanafelintobeautyclinic.com" target="_blank" rel="noopener">luanafelintobeautyclinic.com</a>
+  </div>
+  <p class="legal">Sérum para cílios e sobrancelhas. Uso externo. Não ingerir. Em caso de contato com os olhos, enxaguar abundantemente com água. Manter fora do alcance de crianças e animais domésticos. Produzido por Botanik Kosmetics LTDA, Campo Bom/RS. Processo Anvisa nº 25351231857/2025-87. Comercializado por LF Saúde e Beleza LTDA.</p>
+</footer>
+
+<a class="btn-pill flutua js-wa" id="flutua" href="#">Quero o meu EXOGROW</a>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* ---------- WhatsApp ---------- */
+var WA = 'https://wa.me/5551993734545?text=' + encodeURIComponent('Oi! Vim pela página e quero o meu Sérum EXOGROW.');
+document.querySelectorAll('.js-wa').forEach(function(a){ a.href = WA; a.target = '_blank'; a.rel = 'noopener'; });
+
+/* ---------- revelação de texto ---------- */
+var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -10% 0px'});
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+/* ---------- antes e depois em loop ---------- */
+var track = document.getElementById('track');
+Array.prototype.slice.call(track.children).forEach(function(c){ var k = c.cloneNode(true); k.setAttribute('aria-hidden','true'); track.appendChild(k); });
+
+/* ---------- acordeão ---------- */
+document.querySelectorAll('#acc li').forEach(function(li){
+  li.addEventListener('click', function(){ document.querySelectorAll('#acc li').forEach(function(x){ x.classList.toggle('on', x === li); }); });
+});
+
+/* ---------- vídeo do telão: sempre em loop, sem som, sem pausa ---------- */
+var tv = document.getElementById('telaoV');
+var tvOn = false;
+function tocar(){ if(!tv.src) tv.src = tv.dataset.src; tv.muted = true; var p = tv.play(); if(p && p.catch) p.catch(function(){}); }
+new IntersectionObserver(function(es){ es.forEach(function(e){ tvOn = e.isIntersecting; if(tvOn) tocar(); }); }, {rootMargin:'800px 0px'}).observe(tv);
+tv.addEventListener('pause', function(){ if(tvOn) setTimeout(tocar, 60); });
+tv.addEventListener('contextmenu', function(e){ e.preventDefault(); });
+
+/* ---------- botão flutuante no celular ---------- */
+var fl = document.getElementById('flutua');
+window.addEventListener('scroll', function(){ fl.classList.toggle('on', scrollY > innerHeight * .9 && (innerHeight + scrollY) < document.body.scrollHeight - 300); }, {passive:true});
+
+/* ---------- scroll suave + animação do produto ---------- */
+gsap.registerPlugin(ScrollTrigger);
+var lenis = new Lenis({lerp:.09});
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+gsap.ticker.lagSmoothing(0);
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){ var h = a.getAttribute('href'); if(h.length > 1){ e.preventDefault(); lenis.scrollTo(h, {offset:0}); } });
+});
+
+/* a animação do produto (3D) fica no módulo abaixo */
+window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+</script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+<script type="module" src="serum3d.js"></script>
+</body>
+</html>
