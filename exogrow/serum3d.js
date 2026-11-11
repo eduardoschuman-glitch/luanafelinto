@@ -285,7 +285,7 @@ tl.to(st, { f: 1, s: () => M() ? 3.4 : 3.6, x: () => M() ? 0 : VW() * .2, y: () 
 tl.to(st, { rot: () => M() ? -8 : -14, roll: -350, duration: .6 }, 7.05);
 
 /* 7: fecha e pousa. Desktop: deitado no espaço vazio abaixo do texto. Celular: de pé no centro. */
-tl.to(st, { f: 0, open: 0, tilt: 0, x: 0, y: () => M() ? VH() * .06 : VH() * .3, rot: () => M() ? -90 : -4, s: () => M() ? VH() * .92 / L() : .75, roll: -392, duration: .7, ease: io }, 7.5);
+tl.to(st, { f: 0, open: 0, tilt: 0, x: 0, y: () => M() ? VH() * .17 : VH() * .3, rot: () => M() ? -90 : -4, s: () => M() ? VH() * 1.04 / L() : .75, roll: -392, duration: .7, ease: io }, 7.5);
 tl.set({}, {}, 8.2);
 
 /* o palco sobe junto quando chegam os resultados */

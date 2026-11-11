@@ -113,7 +113,7 @@ html.lenis,html.lenis body{height:auto}
 .c7 .txt{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center}
 @media (min-width:768px){ .c7 .txt{top:42%} }
 /* celular: no pouso final as letras ficam na frente do sérum, com a cor invertida (como no topo) */
-@media (max-width:767px){ .c7 .fixo{z-index:2;mix-blend-mode:difference} }
+@media (max-width:767px){ .c7 .fixo{z-index:2;mix-blend-mode:difference} .c7 .txt{top:31%} }
 .c7 .txt .p{margin:26px auto 0}
 
 @media (max-width:767px){
@@ -501,6 +501,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.min.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
-<script type="module" src="serum3d.js?v=5"></script>
+<script type="module" src="serum3d.js?v=6"></script>
 </body>
 </html>
