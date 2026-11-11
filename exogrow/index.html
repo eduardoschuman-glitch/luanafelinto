@@ -106,6 +106,7 @@ html.lenis,html.lenis body{height:auto}
 .passos li span{font-size:15px;color:var(--tx2)}
 .c7{background-image:radial-gradient(rgba(255,255,255,.28) 1.2px,transparent 1.6px);background-size:clamp(90px,10vw,150px) clamp(90px,10vw,150px);background-position:center}
 .c7 .txt{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center}
+@media (min-width:768px){ .c7 .txt{top:42%} }
 .c7 .txt .p{margin:26px auto 0}
 
 @media (max-width:767px){
@@ -482,6 +483,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
 window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
 </script>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
-<script type="module" src="serum3d.js?v=3"></script>
+<script type="module" src="serum3d.js?v=4"></script>
 </body>
 </html>
