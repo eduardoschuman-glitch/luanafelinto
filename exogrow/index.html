@@ -112,6 +112,8 @@ html.lenis,html.lenis body{height:auto}
 .c7{background-image:radial-gradient(rgba(255,255,255,.28) 1.2px,transparent 1.6px);background-size:clamp(90px,10vw,150px) clamp(90px,10vw,150px);background-position:center}
 .c7 .txt{position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center}
 @media (min-width:768px){ .c7 .txt{top:42%} }
+/* celular: no pouso final as letras ficam na frente do sérum, com a cor invertida (como no topo) */
+@media (max-width:767px){ .c7 .fixo{z-index:2;mix-blend-mode:difference} }
 .c7 .txt .p{margin:26px auto 0}
 
 @media (max-width:767px){
