@@ -7,6 +7,7 @@ let renderer;
 try {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
 } catch (e) {
+  const fb = document.getElementById('fallback'); if (fb) fb.src = fb.dataset.src;
   document.documentElement.classList.add('no-gl');
   throw e;
 }
@@ -132,7 +133,7 @@ function desenhaRotulo(imgs) {
 }
 const imgs = [];
 desenhaRotulo(imgs);
-faces.forEach((f, i) => { const im = new Image(); im.onload = () => { imgs[i] = im; desenhaRotulo(imgs); }; im.src = `assets/produto/3d/${f.img}.png`; });
+faces.forEach((f, i) => { const im = new Image(); im.onload = () => { imgs[i] = im; desenhaRotulo(imgs); }; im.src = `assets/produto/3d/${f.img}.webp`; });
 const plasticLabel = plastic.clone(); plasticLabel.map = labTex;
 
 /* corpo: fundo bem arredondado; na junta com a tampa, só um chanfro mínimo (fica o vão fino) */
